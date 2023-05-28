@@ -1,7 +1,7 @@
-import { React, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
-    Devider,
+    Divider,
     Drawer,
     IconButton,
     List,
@@ -10,24 +10,24 @@ import {
     ListItemIcon,
     ListItemText,
     Typography,
-    useTheme
+    useTheme,
 } from "@mui/material";
 import {
-    SettingOutlined,
+    SettingsOutlined,
     ChevronLeft,
     ChevronRightOutlined,
     HomeOutlined,
     ShoppingCartOutlined,
-    ReceiptLongOutlined,
     Groups2Outlined,
+    ReceiptLongOutlined,
     PublicOutlined,
+    PointOfSaleOutlined,
     TodayOutlined,
     CalendarMonthOutlined,
     AdminPanelSettingsOutlined,
     TrendingUpOutlined,
-    PieChartOutline,
-    PointOfSaleOutlined
-
+    PieChartOutlined,
+    PieChartOutlineOutlined,
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
@@ -75,7 +75,7 @@ const NavItems = [
     },
     {
         text: "Breakdown",
-        icon: <PieChartOutline />
+        icon: <PieChartOutlineOutlined />
     },
     {
         text: "Management",
@@ -95,7 +95,7 @@ const Sidebar = ({
     drawerWidth,
     isSidebarOpen,
     setIsSidebarOpen,
-    IsNonMobile
+    isNonMobile
 
 }) => {
     const { pathname } = useLocation();
@@ -120,7 +120,7 @@ const Sidebar = ({
                         color: theme.palette.secondary[200],
                         backgroundColor: theme.palette.background.alt,
                         boxSizing: "border-box",
-                        borderWidth: IsNonMobile ? 0 : "2px",
+                        borderWidth: isNonMobile ? 0 : "2px",
                         width: drawerWidth
                     }
                 }}
@@ -131,17 +131,16 @@ const Sidebar = ({
                             <Box display="flex" alignItems="center" gap="0.5rem">
                                 <Typography variant="h4" fontWeight="bold">
                                     ECOMVISION
-
                                 </Typography>
                             </Box>
-                            {!IsNonMobile && (
+                            {!isNonMobile && (
                                 <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                                     <ChevronLeft />
                                 </IconButton>
                             )}
                         </FlexBetween>
                     </Box>
-                    <list>
+                    <List>
                         {NavItems.map(({ text, icon }) => {
                             if (!icon) {
                                 return (
@@ -183,7 +182,7 @@ const Sidebar = ({
                                 </ListItem>
                             )
                         })}
-                    </list>
+                    </List>
                 </Box>
 
             </Drawer>
