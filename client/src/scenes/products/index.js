@@ -93,7 +93,7 @@ const Products = () => {
                     rowGap="20px"
                     columnGap="1.33%"
                     sx={{
-                        "& > div": { gridColumn: isNonMobile ? undefined : "span:4" }
+                        "& > div": { gridColumn: isNonMobile ? undefined : "span 4" }
                     }}
                 >
                     {data.map(({
